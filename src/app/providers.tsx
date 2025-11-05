@@ -6,6 +6,8 @@ import { WagmiProvider } from 'wagmi'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { wagmiConfig, CHAINS } from '@/lib/wagmi'
 import { ReactNode, useState } from 'react'
+import { TransactionHistoryProvider } from '@/components/wallet/TransactionHistoryContext'
+import { Toaster } from 'sonner'
 
 export default function Providers({ children }: { children: ReactNode }) {
   const [client] = useState(() => new QueryClient())
@@ -19,7 +21,10 @@ export default function Providers({ children }: { children: ReactNode }) {
           locale="zh-CN"
           initialChain={CHAINS[1]} // 默认 Base
         >
-          {children}
+          <TransactionHistoryProvider>
+            {children}
+            <Toaster position="top-center" richColors closeButton />
+          </TransactionHistoryProvider>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>

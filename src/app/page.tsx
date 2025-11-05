@@ -2,6 +2,9 @@
 
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import AccountInfo from '@/components/wallet/AccountInfo'
+import BalanceCard from '@/components/wallet/BalanceCard'
+import TransferCard from '@/components/wallet/TransferCard'
+import TransactionHistoryCard from '@/components/wallet/TransactionHistoryCard'
 import Card from '@/components/ui/Card'
 
 export default function Page() {
@@ -17,6 +20,9 @@ export default function Page() {
       </Card>
 
       <AccountInfo />
+      <BalanceCard />
+      <TransferCard />
+      <TransactionHistoryCard />
     </div>
   )
 }
